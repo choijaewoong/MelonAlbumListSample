@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="list_name">
+        <item>@drawable/album1</item>
+        <item>@drawable/album2</item>
+        <item>@drawable/album3</item>
+        <item>@drawable/album4</item>
+        <item>@drawable/album5</item>
+        <item>@drawable/album6</item>
+        <item>@drawable/album7</item>
+        <item>@drawable/album8</item>
+        <item>@drawable/album9</item>
+        <item>@drawable/album10</item>
+        <item>@drawable/album11</item>
+        <item>@drawable/album12</item>
+    </array>
+</resources>
