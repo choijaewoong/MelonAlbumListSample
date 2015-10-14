@@ -14,28 +14,20 @@ import android.widget.ImageView;
  */
 public class AlbumListFragment extends Fragment {
 
-    public static final String ARGS_ALBUM = "album";
+    public static final String POSITION = "position";
     public static int COUNT = 3;
-    private static int[] mAlbumArray = new int[COUNT];
-    private static int mCurrentPosition;
-
+    private int[] mAlbumArray = new int[COUNT];
 
     //    public static final String ARGS_ALBUM_TWO = "album2";
 //    public static final String ARGS_ALBUM_THREE = "album3";
-    private AlbumListFragment(){
-        TypedArray albums = getResources().obtainTypedArray(R.array.list_name);
-        for(int i = 0; i < COUNT ; i++){
-            mAlbumArray[i] = albums.getResourceId((mCurrentPosition*COUNT)+i, -1);
-        }
-    }
+    private AlbumListFragment(){}
 
     public static AlbumListFragment newInstance(int position) {
 
-        mCurrentPosition = position;
         AlbumListFragment fragment = new AlbumListFragment();
         Bundle bundle = new Bundle();
 //        bundle.putInt(ARGS_ALBUM);
-        bundle.putIntArray(ARGS_ALBUM, mAlbumArray);
+        bundle.putInt(POSITION, position);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -45,7 +37,11 @@ public class AlbumListFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Bundle bundle = getArguments();
         if(bundle != null){
-
+            TypedArray albums = getResources().obtainTypedArray(R.array.list_name);
+            for(int i = 0; i < COUNT ; i++){
+                int position = bundle.getInt(POSITION);
+                mAlbumArray[i] = albums.getResourceId((position*COUNT)+i, -1);
+            }
         }
     }
     @Nullable
